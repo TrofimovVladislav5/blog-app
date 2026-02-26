@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 32px 24px;
+}
+
+.nav a {
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.logo__text {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.menu__articles {
+  color: rgb(77, 73, 252);
+}

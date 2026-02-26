@@ -1,0 +1,26 @@
+.comment__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comment__author_name {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.comment__created_at {
+  color: #B5B5B5;
+  font-size: 14px;
+}
+
+.comment__container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(229, 231, 235);
+  padding: 16px 0;
+}
+
+.comments__title {
+  margin-bottom: 16px;
+}

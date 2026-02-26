@@ -21,6 +21,7 @@ services:
       dockerfile: dockerfiles/backend.dockerfile
     volumes:
       - ./src/backend:/var/www/html
+      - /var/www/html/vendor
     expose:
       - 9000
     depends_on:
