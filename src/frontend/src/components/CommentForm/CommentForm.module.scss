@@ -1,8 +1,10 @@
 .form {
-  min-width: 375px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .field {
@@ -12,29 +14,29 @@
 }
 
 .input {
-  border-radius: 5px;
   border: 1px solid rgb(222, 222, 222);
+  border-radius: 5px;
   padding: 10px;
   font-size: 14px;
 }
 
-.textarea {
-  @extend .input; 
+.textarea { 
   min-height: 100px;
+  @extend .input;
 }
 
 .button {
-  background-color: #000;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 4px;
   border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: #000;
+
+  transition: transform 0.2s ease;
   cursor: pointer;
   &:hover {
     background-color: #222;
-    transform: translateY(-2px);
     transition: transform 0.2 ease;
+    transform: translateY(-2px);
   }
-
-  transition: transform 0.2s ease;
 }

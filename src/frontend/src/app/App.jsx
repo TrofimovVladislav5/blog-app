@@ -4,6 +4,7 @@ import ArticlePage from '../pages/Article'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import Footer from '../components/layout/Footer';
+import ArticleForm from '../components/ArticleForm';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/articles" />} />
             <Route path="/articles" element={<ArticlesPage />} />
+            <Route path="/articles/new" element={<ArticleForm />} />
             <Route path="/articles/:id" element={<ArticlePage/>} />
           </Routes>
         </main>
