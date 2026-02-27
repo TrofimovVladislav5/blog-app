@@ -35,7 +35,7 @@ php artisan db:seed
 |--------|-----|----------|
 | Frontend | [localhost:8000](http://localhost:8000) | Основное веб-приложение |
 | API | [localhost:8000/api](http://localhost:8000/api) | REST API эндпоинты |
-| phpMyAdmin | [localhost:1500/phpmyadmin](http://localhost:1500/phpmyadmin) | Панель управления БД |
+| phpMyAdmin | [localhost:1500](http://localhost:1500) | Панель управления БД |
 
 ---
 
@@ -55,7 +55,7 @@ php artisan db:seed
 ## phpMyAdmin
 
 Панель управления базой данных доступна по адресу:
-**[localhost:1500/phpmyadmin](http://localhost:1500/phpmyadmin)**
+**[localhost:1500](http://localhost:1500)**
 
 Параметры подключения берутся из файла **`phpmyadmin.env`** в корне проекта.
 
