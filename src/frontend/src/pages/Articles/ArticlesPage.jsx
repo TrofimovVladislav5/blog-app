@@ -36,7 +36,7 @@ const ArticlesPage = () => {
     <div>
       <div className={styles.container}>
         <h1 className={styles.title}>{title}</h1>
-        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        <p className={styles.subtitle}>{subtitle}</p>
       </div>
       <div className={styles.list}>
         {articles.map(card => (

@@ -9,6 +9,7 @@ const ArticleCard = ({ card }) => {
         <li>{formatDate(card.created_at)}</li>
       </ul>
       <h3 className={styles.title}>{card.title}</h3>
+      <span className={styles.description}>{card.description}</span>
       <span className={styles.readMore}>Читать далее →</span>
     </Link>
   );

@@ -36,7 +36,6 @@ const ArticlePage = () => {
     }));
   }
 
-  //TODO: error state
   if (loading) return <div>Загрузка...</div>
   if (!article) return <div>Статья не найдена</div>
 
