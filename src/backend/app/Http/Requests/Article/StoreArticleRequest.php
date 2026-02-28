@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Article;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -15,6 +15,7 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
             'content' => 'required|string|max:2000'
         ];
     }

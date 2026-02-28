@@ -10,10 +10,22 @@ const ArticlesPage = () => {
   const subtitle = "Минималистичный дизайн, максимальная концентрация на содержании.";
 
   useEffect(() => {
-    fetch('/api/articles')
-      .then(res => res.json())
-      .then(data => setArticles(data.data))
-      .finally(() => setLoading(false));
+    const loadArticles = async () => {
+      try {
+        const res = await fetch('/api/articles');
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.message);
+        }
+        setArticles(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadArticles();
   }, []);
 
   if (loading) {

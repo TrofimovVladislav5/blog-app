@@ -11,10 +11,22 @@ const ArticlePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/articles/${id}`)
-      .then(res => res.json())
-      .then(data => setArticle(data.data))
-      .finally(() => setLoading(false));
+    const loadArticle = async () => {
+      try {
+        const res = await fetch(`/api/articles/${id}`);
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.message);
+        }
+        setArticle(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadArticle();
   }, [id]);
 
   const handleCommentAdded = (newComment) => {
@@ -24,9 +36,10 @@ const ArticlePage = () => {
     }));
   }
 
-  if (loading)
-    return <div>Загрузка...</div>
-  
+  //TODO: error state
+  if (loading) return <div>Загрузка...</div>
+  if (!article) return <div>Статья не найдена</div>
+
   return (
     <div className={styles.page}>
       <ArticleDetail article={article}/>

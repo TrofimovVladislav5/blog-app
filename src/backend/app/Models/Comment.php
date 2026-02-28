@@ -13,7 +13,6 @@ class Comment extends Model
     const UPDATED_AT = null;
 
     protected $fillable = [
-        'article_id',
         'author_name',
         'content'
     ];

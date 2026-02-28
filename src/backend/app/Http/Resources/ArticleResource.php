@@ -14,6 +14,7 @@ class ArticleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'description' => $this->description,
             'content' => $this->content,
             'created_at' => $this->created_at,
             'comments' => CommentResource::collection($this->whenLoaded('comments')),

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\Article\StoreArticleRequest;
+use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Http\Resources\ArticleResource;
 use App\Models\Article;
 
@@ -29,13 +30,17 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateArticleRequest $request, string $id)
     {
-
+        $article = Article::findOrFail($id);
+        $article->update($request->validated());
+        return new ArticleResource($article);
     }
 
     public function destroy(string $id)
     {
-
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return response()->noContent();
     }
 }

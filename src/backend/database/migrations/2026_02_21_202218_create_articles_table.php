@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('description');
             $table->text('content');
             $table->timestamp('created_at')
                 ->useCurrent();

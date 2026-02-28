@@ -5,28 +5,30 @@ const CommentForm = ({ articleId, onCommentAdded }) => {
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!content.trim() || !author.trim()) {
-      return;
-    }
-
-    fetch(`/api/articles/${articleId}/comments`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        author_name: author,
-        content
-      })
-    })
-      .then(res => res.json())
-      .then(data=> {
-        onCommentAdded(data.data);
-        setAuthor('');
-        setContent('')
+    try {
+      const res = await fetch(`/api/articles/${articleId}/comments`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          author_name: author,
+          content
+        })
       });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message);
+      }
+      onCommentAdded(data);
+      setAuthor('');
+      setContent('')
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -37,6 +39,7 @@ const CommentForm = ({ articleId, onCommentAdded }) => {
         </label>
         <input 
           id="name" 
+          name="name"
           placeholder="Аноним" 
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
@@ -49,7 +52,8 @@ const CommentForm = ({ articleId, onCommentAdded }) => {
           Комментарий
         </label>
         <textarea 
-          id="comment" 
+          id="comment"
+          name="comment" 
           placeholder="Здесь можете написать свои мысли" 
           value={content}
           className={styles.textarea}

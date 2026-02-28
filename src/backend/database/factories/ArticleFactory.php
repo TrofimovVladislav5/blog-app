@@ -10,6 +10,7 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
+            'description' => fake()->sentence(),
             'content' => fake()->realText()
         ];
     }
